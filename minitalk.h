@@ -4,7 +4,7 @@
 # include <signal.h>
 # include "./libft/libft.h"
 
-typedef struct	s_message {
+typedef struct s_message {
 	char	byte;
 	int		offset;
 }	t_message;
