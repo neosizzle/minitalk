@@ -4,8 +4,8 @@ CLIENT_SRCS= srcs/ft_client.c
 SERVER_SRCS= srcs/ft_server.c
 CLIENT_BONUS=client_bonus
 SERVER_BONUS=server_bonus
-CLIENT_BONUS_SRCS=
-SERVER_BONUS_SRCS=
+CLIENT_BONUS_SRCS= srcs/ft_client_bonus.c
+SERVER_BONUS_SRCS= srcs/ft_server_bonus.c
 LIBFT= libft/*.c
 GCC=gcc -Wall -Werror -Wextra -I .
 
@@ -18,6 +18,12 @@ ${CLIENT} :
 
 ${SERVER} : 
 	${GCC} ${SERVER_SRCS} ${LIBFT} -o ${SERVER}
+
+${CLIENT_BONUS} : 
+	${GCC} ${CLIENT_BONUS_SRCS} ${LIBFT} -o ${CLIENT}
+
+${SERVER_BONUS} : 
+	${GCC} ${SERVER_BONUS_SRCS} ${LIBFT} -o ${SERVER}
 
 clean:
 	rm -f *.o

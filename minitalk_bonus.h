@@ -2,7 +2,7 @@
 # define MINITALK_H
 
 # include <signal.h>
-# include "libft.h"
+# include "./libft/libft.h"
 
 typedef struct	s_message {
 	unsigned char	byte;
