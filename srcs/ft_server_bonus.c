@@ -23,9 +23,11 @@ static void handle_sig(int sig, siginfo_t *info, void *unused)
 	{
 		ft_putchar_fd(g_message.byte, 1);
 		if (g_message.byte == '\0')
+		{
 			ft_putchar_fd('\n', 1);
+			kill(info->si_pid, SIGUSR1);
+		}
 		init_message();
-		kill(info->si_pid, SIGUSR1);
 	}
 	
 }
