@@ -40,6 +40,6 @@ int main(int argc, char *argv[])
 		send_message(pid, message);
 	}
 	else
-		ft_putstr_fd("Usage: ./client [PID] [message]\n", 1);
+		write(1, "Usage: ./client [PID] [message]\n", 33);
 	return (0);
 }
