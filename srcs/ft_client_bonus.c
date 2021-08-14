@@ -2,7 +2,7 @@
 
 static char	*g_message;
 
-static void send_bits(int pid, char c)
+static void	send_bits(int pid, char c)
 {
 	int	offset;
 
@@ -34,15 +34,16 @@ static void	handle_sig(int sig)
 	{
 		write(1, "\nTotal bytes acknowledged : ", 28);
 		ft_putnbr_fd(ft_strlen(g_message), 1);
+		write(1, "\n", 1);
 	}
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	(void) argv;
-	int		pid;
-	struct	 sigaction sa;
+	int					pid;
+	struct sigaction	sa;
 
+	(void) argv;
 	if (argc == 3)
 	{
 		pid = ft_atoi(argv[1]);

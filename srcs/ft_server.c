@@ -1,6 +1,6 @@
 #include "minitalk.h"
 
-static t_message g_message;
+static t_message	g_message;
 
 static void	init_message(void)
 {
@@ -8,11 +8,11 @@ static void	init_message(void)
 	g_message.offset = 0;
 }
 
-static void handle_sig(int sig)
+static void	handle_sig(int sig)
 {
 	int	bit;
 
-	if(sig == SIGUSR1)
+	if (sig == SIGUSR1)
 		bit = 1;
 	else
 		bit = 0;
@@ -25,17 +25,16 @@ static void handle_sig(int sig)
 			write(1, "\n", 1);
 		init_message();
 	}
-	
 }
 
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	struct sigaction sa;
+	struct sigaction	sa;
 
 	(void) argv;
 	if (argc == 1)
 	{
-		write(1,"Server PID : ", 13);
+		write(1, "Server PID : ", 13);
 		ft_putnbr_fd((int) getpid(), 1);
 		write(1, "\n", 1);
 		sa.sa_handler = handle_sig;

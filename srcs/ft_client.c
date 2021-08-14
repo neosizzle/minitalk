@@ -1,6 +1,6 @@
 #include "minitalk.h"
 
-static void send_bits(int pid, char c)
+static void	send_bits(int pid, char c)
 {
 	int	offset;
 
@@ -26,13 +26,12 @@ static void	send_message(int pid, char *message)
 	send_bits(pid, message[i]);
 }
 
-
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	(void) argv;
 	int		pid;
 	char	*message;
 
+	(void) argv;
 	if (argc == 3)
 	{
 		pid = ft_atoi(argv[1]);
