@@ -7,7 +7,7 @@ static void send_bits(int pid, char c)
 	int	offset;
 
 	offset = 0;
-	while (offset < 7)
+	while (offset < 8)
 	{
 		if ((c >> offset) & 1)
 			kill(pid, SIGUSR1);

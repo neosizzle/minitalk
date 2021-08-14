@@ -19,7 +19,7 @@ static void handle_sig(int sig, siginfo_t *info, void *unused)
 		bit = 0;
 	g_message.byte += (bit << g_message.offset);
 	g_message.offset++;
-	if (g_message.offset == 7)
+	if (g_message.offset == 8)
 	{
 		ft_putchar_fd(g_message.byte, 1);
 		if (g_message.byte == '\0')
