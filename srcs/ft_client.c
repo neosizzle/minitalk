@@ -23,6 +23,7 @@ static void	send_message(int pid, char *message)
 	i = -1;
 	while (message[++i])
 		send_bits(pid, message[i]);
+	send_bits(pid, message[i]);
 }
 
 
