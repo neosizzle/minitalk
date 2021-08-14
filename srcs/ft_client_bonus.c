@@ -26,13 +26,13 @@ static void	send_message(int pid, char *message)
 	while (message[++i])
 		send_bits(pid, message[i]);
 	send_bits(pid, message[i]);
+	g_total_bytes += i;
 }
 
 static void	handle_sig(int sig)
 {
 	if (sig == SIGUSR1)
 	{
-		g_total_bytes++;
 		ft_putstr_fd("\nTotal bytes acknowledged : ", 1);
 		ft_putnbr_fd(g_total_bytes, 1);
 	}
