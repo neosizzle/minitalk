@@ -21,10 +21,10 @@ static void handle_sig(int sig, siginfo_t *info, void *unused)
 	g_message.offset++;
 	if (g_message.offset == 8)
 	{
-		ft_putchar_fd(g_message.byte, 1);
+		write(1, &g_message.byte, 1);
 		if (g_message.byte == '\0')
 		{
-			ft_putchar_fd('\n', 1);
+			write(1, "\n", 1);
 			kill(info->si_pid, SIGUSR1);
 		}
 		init_message();
@@ -39,9 +39,9 @@ int main(int argc, char *argv[])
 
 	if (argc == 1)
 	{
-		ft_putstr_fd("Server PID : ", 1);
+		write(1,"Server PID : ", 13);
 		ft_putnbr_fd((int) getpid(), 1);
-		ft_putstr_fd("\n", 1);
+		write(1, "\n", 1);
 		sa.sa_sigaction = &handle_sig;
 		sa.sa_flags = SA_SIGINFO;
 		sigaction(SIGUSR1, &sa, NULL);
@@ -50,6 +50,6 @@ int main(int argc, char *argv[])
 			pause();
 	}
 	else
-		ft_putstr_fd("Usage: ./server\n", 1);
+		write(1, "Usage: ./server\n", 16);
 	return (0);
 }

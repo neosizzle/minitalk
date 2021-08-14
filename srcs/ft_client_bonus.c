@@ -32,7 +32,7 @@ static void	handle_sig(int sig)
 {
 	if (sig == SIGUSR1)
 	{
-		ft_putstr_fd("\nTotal bytes acknowledged : ", 1);
+		write(1, "\nTotal bytes acknowledged : ", 28);
 		ft_putnbr_fd(ft_strlen(g_message), 1);
 	}
 }
@@ -53,6 +53,6 @@ int main(int argc, char *argv[])
 		send_message(pid, g_message);
 	}
 	else
-		ft_putstr_fd("Usage: ./client [PID] [message]\n", 1);
+		write(1, "Usage: ./client [PID] [message]\n", 33);
 	return (0);
 }
