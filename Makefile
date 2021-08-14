@@ -6,7 +6,7 @@ CLIENT_BONUS=client_bonus
 SERVER_BONUS=server_bonus
 CLIENT_BONUS_SRCS=
 SERVER_BONUS_SRCS=
-LIBFT=libft.a
+LIBFT= libft/*.c
 GCC=gcc -Wall -Werror -Wextra -I .
 
 all:${CLIENT} ${SERVER}
@@ -14,12 +14,10 @@ all:${CLIENT} ${SERVER}
 bonus:${CLIENT_BONUS} ${SERVER_BONUS}
 
 ${CLIENT} : 
-	make -C libft
-	${GCC} ${CLIENT_SRCS} -L libft -l:${LIBFT} -o ${CLIENT}
+	${GCC} ${CLIENT_SRCS} ${LIBFT} -o ${CLIENT}
 
 ${SERVER} : 
-	make -C libft
-	${GCC} ${SERVER_SRCS} -L libft -l:${LIBFT} -o ${SERVER}
+	${GCC} ${SERVER_SRCS} ${LIBFT} -o ${SERVER}
 
 clean:
 	rm -f *.o
