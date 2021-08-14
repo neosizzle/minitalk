@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 		sa.sa_handler = handle_sig;
 		sigaction(SIGUSR1, &sa, NULL);
 		sigaction(SIGUSR2, &sa, NULL);
-		send_message(pid, message);
+		send_message(pid, g_message);
 	}
 	else
 		ft_putstr_fd("Usage: ./client [PID] [message]\n", 1);
